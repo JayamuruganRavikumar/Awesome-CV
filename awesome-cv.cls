@@ -92,6 +92,7 @@
 }
 % Solves issues Warning: File `cv.out' has changed
 \RequirePackage{bookmark}
+\RequirePackage{etoolbox}
 
 %-------------------------------------------------------------------------------
 %                Configuration for directory locations

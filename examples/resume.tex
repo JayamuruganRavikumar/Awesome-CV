@@ -23,6 +23,13 @@
 % Configure page margins with geometry
 \geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
 
+% Language toggle
+
+\newtoggle{lang_eng}
+\settoggle{lang_eng}{true} % True for english and false for German
+\iftoggle{lang_eng}{\usepackage[english]{babel}}{\usepackage[ngerman]{babel}}
+\usepackage[babel,autostyle]{csquotes}
+
 % Color for highlights
 % Awesome Colors: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange
 %                 awesome-nephritis, awesome-concrete, awesome-darknight
@@ -50,7 +57,7 @@
 %	Comment any of the lines below if they are not required
 %-------------------------------------------------------------------------------
 % Available options: circle|rectangle,edge/noedge,left/right
-% \photo[rectangle,edge,right]{./examples/profile}
+\photo[circle,edge,left]{../examples/profile}
 \name{Byungjin}{Park}
 \position{Site Reliability Engineer{\enskip\cdotp\enskip}Software Architect}
 \address{235, World Cup buk-ro, Mapo-gu, Seoul, 03936, Republic of Korea}
@@ -83,7 +90,7 @@
 
 % Print the header with above personal information
 % Give optional argument to change alignment(C: center, L: left, R: right)
-\makecvheader[C]
+\makecvheader[R]
 
 % Print the footer with 3 arguments(<left>, <center>, <right>)
 % Leave any of these blank if they are not needed
@@ -97,14 +104,27 @@
 %	CV/RESUME CONTENT
 %	Each section is imported separately, open each file in turn to modify content
 %-------------------------------------------------------------------------------
-\input{resume/summary.tex}
-\input{resume/experience.tex}
-\input{resume/honors.tex}
-\input{resume/certificates.tex}
+\iftoggle{lang_eng}
+{\input{resume/summary_eng.tex}}
+{\input{resume/summary.tex}}
+
+\iftoggle{lang_eng}
+{\input{resume/Experience_eng.tex}}
+{\input{resume/experience.tex}}
+
+\iftoggle{lang_eng}
+{\input{resume/honors_eng.tex}}
+{\input{resume/honors.tex}}
+
+\iftoggle{lang_eng}
+{\input{resume/certificates_eng.tex}}
+{\input{resume/certificates.tex}}
 % \input{resume/presentation.tex}
 % \input{resume/writing.tex}
 % \input{resume/committees.tex}
-\input{resume/education.tex}
+\iftoggle{lang_eng}
+{\input{resume/education_eng.tex}}
+{\input{resume/education.tex}}
 % \input{resume/extracurricular.tex}
 
 
